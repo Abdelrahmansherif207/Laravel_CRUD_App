@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title'); 
             $table->text('body'); 
             $table->boolean('enabled')->default(true); 
-            $table->unsignedBigInteger('user_id'); 
             $table->timestamps(); 
             $table->softDeletes(); 
         });

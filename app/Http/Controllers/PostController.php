@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\User; 
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -14,7 +15,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::with('user')->orderByDesc('id')->get();
         return view('posts.index', compact('posts'));
     }
 
@@ -38,6 +39,7 @@ class PostController extends Controller
         $post->enabled = $request->input('enabled', false); 
         $post->user_id = $request->input('user_id');
         $post->save();
+        event(new \App\Events\PostAdded($post)); 
     
         return redirect()->route('posts.index')->with('success', 'Post created successfully!');
     }
@@ -67,7 +69,11 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, $id)
     {
         $post = Post::findOrFail($id);
-    
+
+        if ($post->user_id !== Auth::id()) {
+            return back()->withErrors(['post' => 'You are not the owner of this post.']);
+        }
+
         $validatedData = $request->validated();
     
         $post->update([

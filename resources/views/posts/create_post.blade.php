@@ -37,20 +37,8 @@
             @enderror
         </div>
 
-        <div class="mb-3">
-            <label for="user_id" class="form-label">User:</label>
-            <select name="user_id" class="form-control @error('user_id') is-invalid @enderror" id="user_id">
-                <option value="">Select a User</option>
-                @foreach($users as $user)
-                    <option value="{{ $user->id }}" {{ old('user_id') == $user->id ? 'selected' : '' }}>
-                        {{ $user->id }}
-                    </option>
-                @endforeach
-            </select>
-            @error('user_id')
-                <div class="invalid-feedback">{{ $message }}</div>
-            @enderror
-        </div>
+        <!-- Remove user selection, use the authenticated user instead -->
+        <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
 
         <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" name="enabled" id="enabled" value="1" {{ old('enabled') ? 'checked' : '' }}>
@@ -58,7 +46,6 @@
                 Enabled
             </label>
         </div>
-
 
         <button type="submit" class="btn btn-primary">Create Post</button>
     </form>
