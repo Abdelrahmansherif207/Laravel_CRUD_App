@@ -22,6 +22,30 @@
 ### Rules for Creating and Updating Posts
 - **Validation Rules**: The creation and updating of posts are validated based on certain rules like ensuring the post has a title, body, and user association. For updates, the current user can only update their own posts.
 
+### Register Api request
+![register](screenshots/register.png)
+
+### Login Api request
+![login](screenshots/login.png)
+
+### UnAuthenticated 403 message ( requesting posts without login in )
+![403](screenshots/403.png)
+
+### View All Posts
+![403](screenshots/allposts.png)
+
+### View Single Post With ID
+![403](screenshots/singlepost.png)
+
+### Create new Post
+![403](screenshots/createpost.png)
+
+### Update Post
+![403](screenshots/updatepost.png)
+
+### Delete Post
+![403](screenshots/deletepost.png)
+
 ### Posts Shows New Posts For Authenticated User and Can Only Edit His Posts
 ![Posts](screenshots/auth_posts.png)
 
