@@ -64,7 +64,7 @@ class PostApiController extends Controller
         $post = Post::findOrFail($id);
 
         if ($post->user_id !== Auth::id()) {
-            return response()->json(['message' => 'Unauthorized'], 403);
+            return response()->json(['message' => 'Unauthorized: Your are not onwer of this post'], 403);
         }
 
         $post->delete();
