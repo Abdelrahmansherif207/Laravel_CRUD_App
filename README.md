@@ -32,19 +32,22 @@
 ![403](screenshots/403.png)
 
 ### View All Posts
-![403](screenshots/allposts.png)
+![all posts](screenshots/allposts.png)
 
 ### View Single Post With ID
-![403](screenshots/singlepost.png)
+![single post](screenshots/singlepost.png)
 
 ### Create new Post
-![403](screenshots/createpost.png)
+![403](screenshots/creatingpost.png)
 
 ### Update Post
-![403](screenshots/updatepost.png)
+![403](screenshots/updatingpost.png)
 
 ### Delete Post
-![403](screenshots/deletepost.png)
+![403](screenshots/deletingpost.png)
+
+### Unauthorized (deleting not owned post)
+![403](screenshots/4033.png)
 
 ### Posts Shows New Posts For Authenticated User and Can Only Edit His Posts
 ![Posts](screenshots/auth_posts.png)
